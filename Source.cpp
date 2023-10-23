@@ -66,6 +66,10 @@ int main() {
     int n;
     cout << "Enter the size of the array: ";
     cin >> n;
+    while (n <= 0) {
+        cout << "Invalid size. Please enter a positive number: ";
+        cin >> n;
+    }
 
     double* array = new double[n];
 
