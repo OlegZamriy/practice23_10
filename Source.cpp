@@ -1,10 +1,37 @@
 #include <iostream>
-#include <Windows.h>
-
+#include <ctime> 
+#include <cstdlib> 
 int main() {
-    SetConsoleOutputCP(1251);
-    
+    const int arraySize = 10; 
+    int arr[arraySize];
 
+    std::srand(static_cast<unsigned>(std::time(nullptr)));
+
+    for (int i = 0; i < arraySize; i++) {
+        arr[i] = std::rand() % 100; 
+    }
+
+    std::cout << "Array: ";
+    for (int i = 0; i < arraySize; i++) {
+        std::cout << arr[i] << " ";
+    }
+    std::cout << std::endl;
+
+    int minElement = arr[0];
+    int maxElement = arr[0];
+
+    for (int i = 1; i < arraySize; i++) {
+        if (arr[i] < minElement) {
+            minElement = arr[i];
+        }
+        if (arr[i] > maxElement) {
+            maxElement = arr[i];
+        }
+    }
+
+    std::cout << "Minimal element: " << minElement << std::endl;
+    std::cout << "Maximum element: " << maxElement << std::endl;
 
     return 0;
 }
+
